@@ -1,8 +1,10 @@
 module Text.Delimited.Types (
-	Content, Record, Field
+	Content, Record, Field,
+	Result
 ) where
 
-import Data.ByteString (ByteString)
+import Data.ByteString							(ByteString)
+import Data.ParserCombinators.Attoparsec.Char8	(ParseError)
 
 -- | A delimited file is a series of variable length records.
 type Content = [Record]
@@ -13,3 +15,6 @@ type Record = [Field]
 
 -- | A field is a strict ByteString.
 type Field = ByteString
+
+-- | Result type.
+type Result a = Either ParseError a

@@ -50,13 +50,13 @@ parser delims = line `P.manyTill` P.eof
 -- Record fields are separated by any of the characters in 'delims'. There is
 -- no way of escaping delimiters, so record fields may not contain any of the
 -- characters in 'delims'.
-decode :: [Char] -> ByteString -> Either P.ParseError Content
+decode :: [Char] -> ByteString -> Result Content
 decode delims = snd . P.parse (parser delims)
 
 -- | Decode a ByteString, apply a function to each 'Record' and encode the content.
 -- Delimiters may contain multiple characters but only the first is used for
 -- encoding.
-interact :: (Record -> Record) -> [Char] -> ByteString -> Either P.ParseError ByteString
+interact :: (Record -> Record) -> [Char] -> ByteString -> Result ByteString
 interact f delims s =
     case decode delims s of
 		Right c -> Right (encode (head delims) (map f c))
