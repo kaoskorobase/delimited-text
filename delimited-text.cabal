@@ -19,11 +19,10 @@ library
   other-modules:    Text.Delimited.ByteString.Lazy
                     Text.Delimited.Types
                     
-  build-depends:    array,
-                    base >= 3,
-                    binary >= 0.4,
+  build-depends:    base >= 3,
+                    binary == 0.4.3.1,
                     bytestring,
-                    attoparsec >= 0.5,
-                    bytestring-show >= 0.2
+                    attoparsec == 0.5.1,
+                    bytestring-show == 0.2.1
 
   ghc-options:      -O2 -funbox-strict-fields 
