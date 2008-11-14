@@ -20,9 +20,9 @@ library
                     Text.Delimited.Types
                     
   build-depends:    base >= 3,
-                    binary == 0.4.3.1,
+                    binary == 0.4.*,
                     bytestring,
-                    attoparsec == 0.5.1,
-                    bytestring-show == 0.2.1
+                    attoparsec == 0.5.*,
+                    bytestring-show == 0.2.*
 
   ghc-options:      -O2 -funbox-strict-fields 
