@@ -31,7 +31,7 @@ parser delims = line `P.manyTill` P.eof
 	where
 		line  = (field `P.sepBy` sep) `endBy` eol
 		field = fromLazy `fmap` P.takeWhile (P.notInClass (delims ++ nls))
-		sep   = P.skipMany1 (P.satisfy $ P.inClass delims)
+		sep   =              P.satisfy $ P.inClass delims
 		eol   = P.skipMany1 (P.satisfy $ P.inClass nls)
 		nls   = "\n\r"
 
