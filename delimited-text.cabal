@@ -1,5 +1,5 @@
 name:               delimited-text
-version:            0.0.3
+version:            0.1.0
 synopsis:           Parse character delimited textual data
 description:        Parse character delimited textual data
 license:            BSD3
