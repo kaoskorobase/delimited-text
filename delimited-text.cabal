@@ -21,6 +21,7 @@ extra-source-files: examples/data.dlm
 library
   exposed-modules:  Text.Delimited
   other-modules:    Text.Delimited.ByteString.Lazy
+                    Text.Delimited.Put
                     Text.Delimited.Types
                     
   build-depends:    base >= 3,

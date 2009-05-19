@@ -2,23 +2,12 @@ module Text.Delimited.ByteString.Lazy (
     encode, decode, interact
 ) where
 
-import Data.Binary.Put										(Put, putByteString, runPut)
 import Data.ByteString.Lazy									(ByteString, toChunks)
 import qualified Data.ByteString                			as BS
 import Prelude                              				hiding (interact)
-import Text.Show.ByteString                					(putAscii, showp, unlinesP)
 import qualified Data.ParserCombinators.Attoparsec.Char8 	as P
 import Text.Delimited.Types
-
--- | Intersperse a list of 'Put's with a delimiter.
-intersperseP :: Put -> [Put] -> Put
-intersperseP _ []     = return ()
-intersperseP _ (x:[]) = showp x
-intersperseP d (x:xs) = x >> d >> intersperseP d xs
-
--- | Convert 'Content' delimited by 'delim' to a 'Put'.
-putContent :: Char -> Content -> Put
-putContent delim = unlinesP . map (intersperseP (putAscii delim) . map putByteString)
+import Text.Delimited.Put                                   (putContent, runPut)
 
 -- | Encode records separated by newlines to a ByteString.
 -- Record fields are separated by 'delim'.
