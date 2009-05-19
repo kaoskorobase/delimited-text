@@ -2,7 +2,7 @@ import qualified Data.ByteString			as BS
 import qualified Data.ByteString.Lazy   	as B
 import qualified Data.ByteString.Lex.Double as L
 import System.Environment               	(getArgs)
-import Text.Delimited.ByteString        	as DT
+import Text.Delimited                    	as DT
 
 mainInteract :: [Char] -> IO ()
 mainInteract ds = do
