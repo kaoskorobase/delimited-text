@@ -12,7 +12,7 @@ stability:          provisional
 homepage:           http://code.haskell.org/~StefanKersten/code/delimited-text
 tested-with:        GHC == 6.10.1
 build-type:         Simple
-cabal-version:      >= 1.2
+cabal-version:      >= 1.6
 
 extra-source-files: examples/data.dlm
                     examples/data.csv
