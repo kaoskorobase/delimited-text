@@ -31,3 +31,7 @@ library
                     bytestring-show == 0.2.*
 
   ghc-options:      -O2 -funbox-strict-fields 
+
+source-repository head
+  type:     darcs
+  location: http://code.haskell.org/~StefanKersten/code/delimited-text/
