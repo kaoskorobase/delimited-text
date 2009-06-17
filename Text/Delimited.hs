@@ -4,7 +4,7 @@
 -- At this time parsing is only supported for lazy 'ByteString's.
 --
 module Text.Delimited (
-	module Text.Delimited.ByteString.Lazy
+    module Text.Delimited.ByteString.Lazy
   , module Text.Delimited.Types
 ) where
 
