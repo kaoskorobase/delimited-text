@@ -37,4 +37,4 @@ main = do
         "interact" -> mainInteract ds
         "print"    -> mainPrint ds
         "printnum" -> mainPrintNumbers ds
-        otherwise  -> putStrLn ("Unknown command " ++ cmd)
+        otherwise  -> putStrLn "Usage: runhaskell test.hs [interact|print|printnum] DELIMITERS < FILE"
