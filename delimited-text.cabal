@@ -33,5 +33,5 @@ library
   ghc-options:      -Wall -O2 -funbox-strict-fields
 
 source-repository head
-  type:     darcs
-  location: http://code.haskell.org/~StefanKersten/code/delimited-text/
+  type:             darcs
+  location:         http://code.haskell.org/~StefanKersten/code/delimited-text/
