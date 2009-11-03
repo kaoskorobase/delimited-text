@@ -5,9 +5,9 @@ description:        Parse character delimited textual data
 license:            BSD3
 license-file:       LICENSE
 category:           Data
-copyright:          Copyright (c) Stefan Kersten 2008
-author:             Stefan Kersten
-maintainer:         Stefan Kersten
+copyright:          Copyright (c) Stefan Kersten 2008-2009
+author:             Stefan Kersten <sk@xdv.org>
+maintainer:         Stefan Kersten <sk@xdv.org>
 stability:          provisional
 homepage:           http://code.haskell.org/~StefanKersten/code/delimited-text
 tested-with:        GHC == 6.10.1
