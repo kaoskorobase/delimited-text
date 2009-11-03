@@ -3,8 +3,8 @@ module Text.Delimited.Types (
     Result
 ) where
 
-import Data.ByteString                          (ByteString)
-import Data.ParserCombinators.Attoparsec.Char8  (ParseError)
+import Data.ByteString (ByteString)
+import Data.Attoparsec.Char8 (ParseError)
 
 -- | A delimited file is a series of variable length records.
 type Content = [Record]

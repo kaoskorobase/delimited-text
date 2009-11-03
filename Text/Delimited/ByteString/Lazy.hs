@@ -2,12 +2,12 @@ module Text.Delimited.ByteString.Lazy (
     encode, decode, interact
 ) where
 
-import Data.ByteString.Lazy                                 (ByteString, toChunks)
-import qualified Data.ByteString                            as BS
-import Prelude                                              hiding (interact)
-import qualified Data.ParserCombinators.Attoparsec.Char8    as P
-import Text.Delimited.Types
-import Text.Delimited.Put                                   (putContent, runPut)
+import           Data.ByteString.Lazy (ByteString, toChunks)
+import qualified Data.ByteString as BS
+import qualified Data.Attoparsec.Char8 as P
+import           Prelude hiding (interact)
+import           Text.Delimited.Types
+import           Text.Delimited.Put (putContent, runPut)
 
 -- | Encode records separated by newlines to a ByteString.
 -- Record fields are separated by 'delim'.
@@ -27,7 +27,7 @@ a `endBy` b = do
 
 -- | A lazy 'ByteString' parser for delimited text.
 parser :: [Char] -> P.Parser Content
-parser delims = line `P.manyTill` P.eof
+parser delims = line `P.manyTill` P.endOfInput
     where
         line  = (field `P.sepBy` sep) `endBy` eol
         field = fromLazy `fmap` P.takeWhile (P.notInClass (delims ++ nls))

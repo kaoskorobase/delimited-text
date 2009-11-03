@@ -27,10 +27,8 @@ library
   build-depends:    base >= 3,
                     binary == 0.4.*,
                     bytestring,
-                    attoparsec == 0.5.*,
-                    bytestring-show == 0.2.*
-
-  ghc-options:      -Wall -O2 -funbox-strict-fields
+                    attoparsec >= 0.7,
+                    bytestring-show >= 0.2
 
 source-repository head
   type:             darcs
