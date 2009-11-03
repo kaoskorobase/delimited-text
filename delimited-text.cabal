@@ -30,6 +30,4 @@ library
                     attoparsec >= 0.7,
                     bytestring-show >= 0.2
 
-source-repository head
-  type:             darcs
-  location:         http://code.haskell.org/~StefanKersten/code/delimited-text/
+  ghc-options:      -O2 -funbox-strict-fields 
