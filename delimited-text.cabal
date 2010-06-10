@@ -27,7 +27,7 @@ library
   build-depends:    base >= 3 && < 5,
                     binary >= 0.4,
                     bytestring,
-                    attoparsec >= 0.7,
+                    attoparsec >= 0.7 && < 0.8,
                     bytestring-show >= 0.2
 
   ghc-options:      -O2 -funbox-strict-fields 
