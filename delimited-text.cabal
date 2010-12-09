@@ -15,7 +15,8 @@ Tested-With:        GHC == 6.10, GHC == 6.12
 Build-Type:         Simple
 Cabal-Version:      >= 1.6
 
-Extra-Source-Files: examples/data.dlm
+Extra-Source-Files: ChangeLog.md
+                    examples/data.dlm
                     examples/data.csv
                     examples/test.hs
 
