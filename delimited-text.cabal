@@ -32,4 +32,4 @@ Library
                   , attoparsec >= 0.7
                   , bytestring-show >= 0.2
 
-  Ghc-Options:      -O2 -funbox-strict-fields 
+  Ghc-Options:      -W
