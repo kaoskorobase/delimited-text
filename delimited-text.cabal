@@ -1,5 +1,5 @@
 Name:               delimited-text
-Version:            0.2.0
+Version:            0.2.1
 Synopsis:           Parse character delimited textual data
 Description:        Parse character delimited textual data
 License:            BSD3
@@ -29,7 +29,7 @@ Library
   Build-Depends:    base >= 3 && < 5
                   , binary >= 0.4
                   , bytestring
-                  , attoparsec >= 0.7
+                  , attoparsec >= 0.7 && < 0.8
                   , bytestring-show >= 0.2
 
   Ghc-Options:      -W
