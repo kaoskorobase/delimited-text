@@ -2,9 +2,9 @@ module Text.Delimited.ByteString.Lazy (
     encode, decode, interact
 ) where
 
-import           Data.ByteString.Lazy (ByteString, toChunks)
-import qualified Data.ByteString as BS
+import           Data.ByteString.Lazy (ByteString)
 import qualified Data.Attoparsec.Char8 as P
+import qualified Data.Attoparsec.Lazy as PL
 import           Prelude hiding (interact)
 import           Text.Delimited.Types
 import           Text.Delimited.Put (putContent, runPut)
@@ -13,10 +13,6 @@ import           Text.Delimited.Put (putContent, runPut)
 -- Record fields are separated by 'delim'.
 encode :: Char -> Content -> ByteString
 encode delim = runPut . putContent delim
-
--- | Construct a strict ByteString from a lazy one.
-fromLazy :: ByteString -> BS.ByteString
-fromLazy = BS.concat . toChunks
 
 -- | Construct a parser from 'a' terminated by 'b'.
 endBy :: P.Parser a -> P.Parser b -> P.Parser a
@@ -30,8 +26,8 @@ parser :: [Char] -> P.Parser Content
 parser delims = line `P.manyTill` P.endOfInput
     where
         line  = (field `P.sepBy` sep) `endBy` eol
-        field = fromLazy `fmap` P.takeWhile (P.notInClass (delims ++ nls))
-        sep   =              P.satisfy $ P.inClass delims
+        field = P.takeWhile (P.notInClass (delims ++ nls))
+        sep   = P.satisfy (P.inClass delims)
         eol   = P.skipMany1 (P.satisfy $ P.inClass nls)
         nls   = "\n\r"
 
@@ -40,7 +36,7 @@ parser delims = line `P.manyTill` P.endOfInput
 -- no way of escaping delimiters, so record fields may not contain any of the
 -- characters in 'delims'.
 decode :: [Char] -> ByteString -> Result Content
-decode delims = snd . P.parse (parser delims)
+decode delims = PL.eitherResult . PL.parse (parser delims)
 
 -- | Decode a ByteString, apply a function to each 'Record' and encode the content.
 -- Delimiters may contain multiple characters but only the first is used for
